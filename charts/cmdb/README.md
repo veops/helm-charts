@@ -22,4 +22,20 @@ $ helm install my-cmdb veops/cmdb
 
 ## Configuration
 
-TODO:
+- Use existing mysql and redis
+
+```bash
+--set api.mysql.builtIn=false \
+--set api.mysql.host=${your-mysql-host} \
+--set api.mysql.port=${your-mysql-port} \
+--set api.mysql.database=${your-mysql-database} \
+--set api.mysql.user=${your-mysql-user} \
+--set api.mysql.password=${your-mysql-password}
+```
+
+```bash
+--set api.redis.builtIn=false \
+--set api.redis.host=${your-mysql-host} \
+--set api.redis.port=${your-mysql-port} \
+--set api.redis.password=${your-mysql-password}
+```
