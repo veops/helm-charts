@@ -11,7 +11,7 @@ The helm chart installs [cmdb](https://github.com/veops/cmdb) in a Kubernetes cl
 Add Veops Helm repository
 
 ```bash
-$ helm repo add veops https://github.com/veops/helm-charts
+$ helm repo add veops https://veops.github.io/helm-charts
 ```
 
 To install the chart with the release name `my-cmdb`, run the following command:

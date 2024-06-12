@@ -9,7 +9,7 @@ This repository contains Helm charts for Veops project.
 Once Helm is set up properly, add the repo as follows:
 
 ```bash
-$ helm repo add veops https://github.com/veops/helm-charts
+$ helm repo add veops https://veops.github.io/helm-charts
 ```
 
 ## Helm Charts
