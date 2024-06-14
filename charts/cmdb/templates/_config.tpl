@@ -3,7 +3,7 @@ TZ: "Asia/Shanghai"
 {{- $mysqlHost := (printf "%s:%s" .Values.api.mysql.host .Values.api.mysql.port) -}}
 {{- $redisHost := (printf "%s:%s" .Values.api.redis.host .Values.api.redis.port) -}}
 {{- if .Values.api.mysql.builtIn }}
-MYSQL_HOST: "{{ .Release.Name }}-mysql"
+MYSQL_HOST: "{{ .Release.Name }}-builtin-mysql"
 MYSQL_PORT: "3306"
 MYSQL_USER: "root"
 MYSQL_DATABASE: "cmdb"

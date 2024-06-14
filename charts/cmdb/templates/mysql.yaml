@@ -2,29 +2,29 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.Name }}-mysql
+  name: {{ .Release.Name }}-builtin-mysql
 spec:
   ports:
     - port: 3306
   selector:
-    app: {{ .Release.Name }}-mysql
+    app: {{ .Release.Name }}-builtin-mysql
   type: ClusterIP
 ---
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-mysql
+  name: {{ .Release.Name }}-builtin-mysql
 spec:
   selector:
     matchLabels:
-      app: {{ .Release.Name }}-mysql
+      app: {{ .Release.Name }}-builtin-mysql
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}-mysql
+        app: {{ .Release.Name }}-builtin-mysql
     spec:
       containers:
         - name: mysql
@@ -54,16 +54,16 @@ spec:
       volumes:
         - name: mysql-persistent-storage
           persistentVolumeClaim:
-            claimName: {{ .Release.Name }}-mysql
+            claimName: {{ .Release.Name }}-builtin-mysql
         - name: mysql-config
           configMap:
-            name: {{ .Release.Name }}-mysql-config
+            name: {{ .Release.Name }}-builtin-mysql-config
 ---
 
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Release.Name }}-mysql
+  name: {{ .Release.Name }}-builtin-mysql
   namespace: {{ .Release.Namespace }}
 spec:
   accessModes:
@@ -76,7 +76,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Release.Name }}-mysql-config
+  name: {{ .Release.Name }}-builtin-mysql-config
   namespace: {{ .Release.Namespace }}
 data:
   initdb.sql: |
