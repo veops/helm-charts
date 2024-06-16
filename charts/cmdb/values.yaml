@@ -157,7 +157,9 @@ ui:
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: "2.4.5"
-
+  
+  # override UI nginx conf
+  nginxConfOverride: {}
   podAnnotations: {}
   podLabels: {}
 

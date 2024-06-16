@@ -6,6 +6,9 @@ metadata:
     {{- include "cmdb.labels" . | nindent 4 }}
 data:
   cmdb.conf: |
+{{ if .Values.ui.nginxConfOverride }}
+  {{- (tpl .Values.ui.nginxConfOverride $) | nindent 4 }}
+{{- else }}
     server {
         listen 80;
         access_log   /var/log/nginx/access.cmdb.log;
@@ -60,3 +63,4 @@ data:
             add_header X-Asset "yes";
         }
     }
+{{- end }}
