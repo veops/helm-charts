@@ -47,6 +47,9 @@ spec:
           args:
             - -c
             - |
+{{ if .Values.api.argsOverride }}
+{{- (tpl .Values.api.argsOverride $) | nindent 14 }}
+{{- else }}
               sed -i "s#USE_ACL = False#USE_ACL = True#g" settings.py
               /wait
               flask db-setup
@@ -62,6 +65,7 @@ spec:
               flask init-import-user-from-acl
               flask init-department
               flask cmdb-counter > counter.log 2>&1
+{{- end }}
           resources:
             {{- toYaml .Values.api.resources | nindent 12 }}
           {{- with .Values.api.volumeMounts }}
