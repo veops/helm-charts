@@ -146,21 +146,7 @@ api:
   tolerations: []
 
   affinity: {}
-  #argsOverride: {}
-  argsOverride: |
-    sed -i "s#USE_ACL = False#USE_ACL = True#g" settings.py
-    /wait
-    flask db-setup
-    flask common-check-new-columns
-    gunicorn --workers=4 autoapp:app -b 0.0.0.0:5000 -D
-    
-    celery -A celery_worker.celery worker -E -Q one_cmdb_async --autoscale=4,1 --logfile=one_cmdb_async.log -D
-    celery -A celery_worker.celery worker -E -Q acl_async --logfile=one_acl_async.log --autoscale=2,1 -D
-    
-    nohup flask cmdb-trigger > trigger.log 2>&1 &
-    flask cmdb-init-cache
-    flask cmdb-init-acl
-    flask cmdb-counter > counter.log 2>&1
+  argsOverride: {}
 
 ui:
   replicaCount: 1
