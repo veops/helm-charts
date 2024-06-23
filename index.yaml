@@ -3,6 +3,16 @@ entries:
   cmdb:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-06-23T12:27:42.1293525Z"
+    description: cmdb Helm chart for Kubernetes
+    digest: 43f59882e86fec9fedea9ba2d09457408e92dd47a93889b6c88cc971fb3e70b0
+    name: cmdb
+    type: application
+    urls:
+    - https://github.com/veops/helm-charts/releases/download/cmdb-0.1.9/cmdb-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-06-20T14:12:52.059922071Z"
     description: cmdb Helm chart for Kubernetes
     digest: e3f955982195fa88bf6892ce6e41f0c859c3446202f1d00bad663c80804e1884
@@ -71,4 +81,4 @@ entries:
     urls:
     - https://github.com/veops/helm-charts/releases/download/cmdb-0.1.2/cmdb-0.1.2.tgz
     version: 0.1.2
-generated: "2024-06-20T14:12:52.059955874Z"
+generated: "2024-06-23T12:27:42.129373779Z"
