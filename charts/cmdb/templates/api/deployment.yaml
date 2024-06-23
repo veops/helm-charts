@@ -11,6 +11,7 @@ spec:
   selector:
     matchLabels:
       {{- include "cmdb.labels" . | nindent 6 }}
+      {{- include "cmdb.api.component" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.api.podAnnotations }}
@@ -19,6 +20,7 @@ spec:
       {{- end }}
       labels:
         {{- include "cmdb.labels" . | nindent 8 }}
+        {{- include "cmdb.api.component" . | nindent 8 }}
         {{- with .Values.api.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}

@@ -13,3 +13,4 @@ spec:
       name: http
   selector:
     {{- include "cmdb.selectorLabels" . | nindent 4 }}
+    {{- include "cmdb.ui.component" . | nindent 4 }}

@@ -68,3 +68,11 @@ Create the name of the service account to use
 {{- default "default" .Values.api.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{- define "cmdb.api.component" -}}
+component: cmdb-api
+{{- end }}
+
+{{- define "cmdb.ui.component" -}}
+component: cmdb-ui
+{{- end }}
