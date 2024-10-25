@@ -77,6 +77,10 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "cmdb.fullname" . }}-api
+          {{- with .Values.api.extraEnvs }}
+          env:
+          {{- . | toYaml | nindent 12 }}
+          {{- end }}
       {{- with .Values.api.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}

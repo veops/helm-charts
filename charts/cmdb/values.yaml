@@ -47,6 +47,10 @@ api:
     # Overrides the image tag whose default is the chart appVersion.
     tag: "2.4.5"
 
+  extraEnvs: []
+  # extraEnvs:
+  #   - name: MY_BAR
+  #     value: "my_bar"
   mysql:
     builtIn: true
     host: "mysql"
@@ -240,3 +244,8 @@ ui:
   tolerations: []
 
   affinity: {}
+
+  extraEnvs: []
+  # extraEnvs:
+  #   - name: MY_BAR
+  #     value: "my_bar"
