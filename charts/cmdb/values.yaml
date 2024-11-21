@@ -29,6 +29,13 @@ redis:
     registry: docker.io
     repository: library/redis
     tag: "6.2.5"
+  command:
+    name: ""
+    extraArgs: []
+  # command:
+  #   name: redis-server
+  #   extraArgs: 
+  #     - --protected-mode no
   resources:
     limits:
       cpu: 1000m

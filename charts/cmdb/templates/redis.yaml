@@ -34,6 +34,14 @@ spec:
           image: {{ .Values.redis.image.registry }}/{{ .Values.redis.image.repository }}:{{ .Values.redis.image.tag }}
           ports:
             - containerPort: 6379
+          {{- if .Values.redis.command.name }}
+          command:
+            - {{ .Values.redis.command.name }}
+          {{- end }}
+          args:
+            {{- range .Values.redis.command.extraArgs }}
+            - {{ . }}
+            {{- end }}
           resources:
             {{- toYaml .Values.redis.resources | nindent 12 }}
           livenessProbe:
