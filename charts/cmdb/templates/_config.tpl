@@ -19,7 +19,7 @@ MYSQL_PASSWORD: {{ .Values.api.mysql.password | quote }}
 {{- if .Values.api.redis.builtIn }}
 CACHE_REDIS_HOST: "redis"
 CACHE_REDIS_PORT: "6379"
-CACHE_REDIS_PASSWORD: ""
+CACHE_REDIS_PASSWORD: {{ .Values.api.redis.password | quote }}
 {{- $redisHost =  (print "redis:6379") -}}
 {{- else }}
 CACHE_REDIS_HOST: {{ .Values.api.redis.host | quote }}
