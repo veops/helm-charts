@@ -51,8 +51,8 @@ spec:
             {{- toYaml .Values.ui.resources | nindent 12 }}
           volumeMounts:
             - name: ui-config
-              mountPath: /etc/nginx/conf.d/cmdb.conf
-              subPath: cmdb.conf
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
           {{- with .Values.ui.volumeMounts }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
